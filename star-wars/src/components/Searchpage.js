@@ -86,6 +86,10 @@ class SearchPage extends Component {
     }
     return <div className="text-center"> No results found </div>;
   };
+  onLogout() {
+    localStorage.clear();
+    window.location.href = "/";
+  }
 
   render() {
     const { props, state, updateResults, goTopage, renderPlanetCard } = this;
@@ -101,6 +105,7 @@ class SearchPage extends Component {
           value={searchString}
           onChange={updateResults}
         />
+        <button onClick={this.onLogout}>Log out</button>
         {isFetching ? (
           <div className="text-center"> Loading... </div>
         ) : (
